@@ -1,0 +1,28 @@
+label {
+  font-size: 20px;
+}
+
+.form-check-input {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+p {
+  font-size: 20px;
+}
+
+.elemento-a-animar {
+  opacity: 0; /* El elemento inicialmente es invisible */
+  animation: barrido 1s forwards;
+}
+
+@keyframes barrido {
+  from {
+      opacity: 0;
+      transform: translateX(100%); /* Inicia fuera de la pantalla a la derecha */
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0); /* Termina en la posición original */
+  }
+}

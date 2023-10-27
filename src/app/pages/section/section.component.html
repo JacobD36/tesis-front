@@ -1,0 +1,69 @@
+<div class="pt-5" *ngIf="intro && !final">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h3>{{test_title}}</h3>
+        <hr>
+      </div>
+      <div class="col-12 mt-2">
+        <p [innerHTML]="test_description"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-end">
+        <button
+            class="btn btn-primary mb-5 mt-4"
+            style="width: 150px;"
+            (click)="this.intro = false;">Iniciar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pt-5" *ngIf="!intro && !final">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h3>{{test_title}}</h3>
+        <hr>
+      </div>
+    </div>
+    <form autocomplete="off" (ngSubmit)="next()" [formGroup]="dataForm">
+      <div class="col-sm-12 col-xs-12 mb-3">
+        <label class="form-label" style="font-weight: 500;">Pregunta Nro. {{question_number + 1}} de {{questions.length}}</label>
+        <p>{{this.questions[question_number].question}}</p>
+        <div>
+          <div class="form-check pb-2" *ngFor="let opt of this.questions[question_number].answer_options">
+            <input class="form-check-input" type="radio" id="{{opt.opt}}" [value]="opt.value" formControlName="opt" [class.is-invalid]="invalidField('opt')">
+            <label class="form-check-label" for="{{opt.opt}}">
+              &nbsp;&nbsp;{{opt.opt}}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="col d-flex justify-content-end">
+          <button
+              class="btn btn-primary mb-5 mt-4"
+              style="width: 150px;"
+              [disabled]="this.dataForm.invalid || loading"><i *ngIf="loading" class="fas fa-spinner fa-pulse"></i> Siguiente</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="pt-5" *ngIf="final">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h3>¡Muchas gracias por tu tiempo!</h3>
+        <hr>
+      </div>
+      <div class="col-12 mt-2">
+        <p>
+          Agradecemos tu participación y esperamos que esta experiencia sea enriquecedora. Tus respuestas son muy valiosas para nosotros. Si tienes alguna pregunta o necesitas más información, no dudes en ponerte en contacto con nosotros. ¡Te deseamos mucho éxito en la prueba y en tus futuros desafíos! ¡Gracias por confiar en nosotros!
+        </p>
+        <code>{{finalReport | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>
