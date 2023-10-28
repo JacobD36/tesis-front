@@ -10,7 +10,14 @@
     <div class="row">
       <div class="col-12 mb-3" style="text-align: justify;">
         <h4 class="pb-3">¡Bienvenido a nuestra prueba psicológica en línea!</h4>
-        <p class="pb-3">Diseñada por profesionales de la psicología, nuestra prueba te ayudará a obtener una visión más profunda de ti mismo y de tu salud mental. Al responder a nuestras preguntas cuidadosamente diseñadas, podrás obtener información valiosa sobre tu bienestar emocional y psicológico. Nuestro objetivo es proporcionarte herramientas y recursos que te ayuden a tomar decisiones informadas y a buscar el apoyo adecuado si es necesario. Recuerda que esta prueba es solo el primer paso hacia una vida más saludable y equilibrada.</p>
+        <p class="pb-3">Estoy encantada de que hayas decidido participar en esta prueba psicológica en línea. Está prueba tiene como objetivo la evaluación de los tipos caracterológicos y el nivel de sentido de vida con fines académicos. Asímismo, se recalca que el instrumento utilizado será tratado con el cuidado que se requiere y no implica ningún riesgo, pues son procedimientos utilizados en la investigación psicológica. De igual manera, el personal que realizará la evaluación es personal calificado. Antes de comenzar, queremos asegurarnos de que te sientas cómodo y tranquilo, por lo que te proporcionaremos algunas instrucciones importantes:</p>
+        <ol>
+          <li class="mb-2"><strong>Privacidad y Confidencialidad:</strong> Puedes responder con sinceridad, ya que tus respuestas son totalmente confidenciales. Nadie más tendrá acceso a tus resultados, y no se compartirán con terceros.</li>
+          <li class="mb-2"><strong>Sincera Reflexión:</strong> Te animamos a responder con honestidad y reflexión. No hay respuestas correctas ni incorrectas, ya que esta prueba se trata de conocer más sobre ti mismo.</li>
+          <li><strong>Tiempo:</strong> Tómate el tiempo que necesites para responder. No hay límite de tiempo, así que siéntete libre de reflexionar en cada pregunta.</li>
+        </ol>
+        <br>
+        <p><strong>Gracias por participar en esta experiencia de autoexploración. ¡Te deseamos una experiencia enriquecedora! Ahora, te pediremos un poco de información:</strong></p>
       </div>
       <div class="col-12 mb-3">
         <h3>Información del evaluado</h3>
@@ -156,11 +163,21 @@
   </div>
   <hr>
   <div class="row">
+    <div class="col-12 pt-3 pb-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="auth_chk" (change)="checkboxChanged()">
+        <label class="form-check-label" for="auth_chk">
+          Comprendo el objetivo de la prueba y acepto voluntariamente ser evaluado/a con el <strong>TEST CARACTEROLÓGICO DE GASTÓN BERGER y el TEST DE PRÓPOSITO VITAL (PIL)</strong>.
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col d-flex justify-content-end">
       <button
           class="btn btn-primary mb-5 mt-4"
           style="width: 150px;"
-          [disabled]="this.dataForm.invalid || loading"><i *ngIf="loading" class="fas fa-spinner fa-pulse"></i> Ingresar</button>
+          [disabled]="this.dataForm.invalid || loading || this.auth == false"><i *ngIf="loading" class="fas fa-spinner fa-pulse"></i> Ingresar</button>
     </div>
   </div>
 </form>

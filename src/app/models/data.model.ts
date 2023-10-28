@@ -6,7 +6,7 @@ export interface Alert {
 export const ALERTS: Alert[] = [
 	{
 		type: 'success',
-		message: 'Este test está desarrollado para realizar un estudio de la percepción de la calidad de los datos de los usuarios de la aplicación. Por favor ingrese la información solicitada. Gracias.',
+		message: 'Se recuerda que: Este test está desarrollado para evaluar los tipos caracterológicos y el nivel de sentido de vida con fines académicos.',
 	}
 ];
 

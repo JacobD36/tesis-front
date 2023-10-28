@@ -192,10 +192,10 @@ const test2_opt = [
 export const questions_test1: DataStruct = {
   title: 'Cuestionario caracterológico de Gastón Berger',
   description: `Esta es una prueba que te ayudará a conocerte mucho mejor.
-  Para conseguirlo, sol tendrás que contestar las preguntas indicando tu respuesta
-  de la siguiente manera: Al final de cada grupo de respuestas existe un número (1,5 o 9)
+  Para conseguirlo, solo tendrás que contestar las preguntas indicando tu respuesta
+  de la siguiente manera: Al final de cada grupo de respuestas existe un número (1, 5 o 9)
   en el cual deberás elegir la respuesta que mejor describa una característica tuya y luego marcar
-  con una “x” el número correspondiente en la hoja de respuestas.<br><br>
+  la opción correspondiente.<br><br>
   <code>Ejemplo:<br><br>
   &nbsp;&nbsp;&nbsp;¿Le gusta salir a pasear con sus amigos?............ 9<br>
   &nbsp;&nbsp;&nbsp;¿Prefiere salir solo (a)?........................... 1</code>
@@ -416,30 +416,195 @@ export const questions_test1: DataStruct = {
 }
 
 export const questions_test2: DataStruct = {
-  title: 'CUESTIONARIO MLQ',
-  description: `Por favor, dedique un momento a pensar lo que le hace sentir que su vida es importante y
-  tiene un significado. Con esas ideas en mente, por favor, responda a las siguientes
-  cuestiones tan sincera y exactamente como pueda. Y tenga en cuenta que se trata de
-  cuestiones muy subjetivas, que no tienen una respuesta correcta o incorrecta. Responda
-  utilizando la siguiente escala:<br><br>
-  <code>&nbsp;&nbsp;&nbsp;1 = Totalmente falso<br>
-  &nbsp;&nbsp;&nbsp;2 = Bastante falso<br>
-  &nbsp;&nbsp;&nbsp;3 = Más bien falso<br>
-  &nbsp;&nbsp;&nbsp;4 = No sé, Ni verdadero ni falso<br>
-  &nbsp;&nbsp;&nbsp;5 = Más bien verdadero<br>
-  &nbsp;&nbsp;&nbsp;6 = Bastante verdadero<br>
-  &nbsp;&nbsp;&nbsp;7 = Totalmente verdadero<br></code>
+  title: 'CUESTIONARIO DEL PROPÓSITO EN LA VIDA',
+  description: `Por favor, seleccione el número que más se aproxime a la afirmación que considere mejor
+  describa su caso o con la cual más se identifique. En lo posible, evite las respuestas neutras (4)
+  y evalúe entre los dos extremos.
+  <br><br>
+  <code>Ejemplo:<br><br>
+  &nbsp;&nbsp;&nbsp;En la vida, por lo general me siento:<br>
+  &nbsp;&nbsp;&nbsp;(7)...Entusiasmado exuberante</code>
   `,
   data: [
-    { id: 1, question: 'Comprendo el significado de mi vida', answer_options: test2_opt },
-    { id: 2, question: 'Busco algo que me haga sentir que mi vida tiene sentido', answer_options: test2_opt },
-    { id: 3, question: 'Siempre estoy buscando el sentido de mi vida', answer_options: test2_opt },
-    { id: 4, question: 'Mi vida tiene un significado muy claro.', answer_options: test2_opt },
-    { id: 5, question: 'Tengo algunas buenas intuiciones acerca de lo que le da sentido a mi vida', answer_options: test2_opt },
-    { id: 6, question: 'He descubierto un significado de mi vida satisfactorio', answer_options: test2_opt },
-    { id: 7, question: 'Estoy siempre buscando algo que haga que mi vida tenga sentido', answer_options: test2_opt },
-    { id: 8, question: 'Estoy buscando un objetivo o misión en la vida', answer_options: test2_opt },
-    { id: 9, question: 'Mi vida no tiene un propósito claro', answer_options: test2_opt },
-    { id: 10, question: 'Estoy buscando el sentido de mi vida', answer_options: test2_opt }
+    { id: 1, question: 'En la vida, por lo general me siento', answer_options: [
+      { opt: '1 Completamente aburrido', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Entusiasmado exuberante', value: 7},
+    ]},
+    { id: 2, question: 'La vida me parece', answer_options: [
+      { opt: '1 Siempre emocionalmente', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Una rutina completa', value: 7},
+    ]},
+    { id: 3, question: 'En la vida yo', answer_options: [
+      { opt: '1 No tengo ninguna meta u objetivo claro', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Tengo metas y objetivos muy claros', value: 7},
+    ]},
+    { id: 4, question: 'Mi existencia personal', answer_options: [
+      { opt: '1 Carece de sentido y propósito', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Tiene mucho propósito y sentido', value: 7},
+    ]},
+    { id: 5, question: 'En mi vida, cada día es', answer_options: [
+      { opt: '1 Constantemente nuevo y distinto', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Exactamente igual y monótono', value: 7},
+    ]},
+    { id: 6, question: 'Si pudiera elegir, yo', answer_options: [
+      { opt: '1 Preferiría nunca haber nacido', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Desearía nueve vidas igual a esta', value: 7},
+    ]},
+    { id: 7, question: 'Después de jubilarme, yo deseo', answer_options: [
+      { opt: '1 Hacer alguna de las cosas que siempre quise hacer', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Descansar completamente por el resto de mi vida', value: 7},
+    ]},
+    { id: 8, question: 'En el logro de las metas de mi vida', answer_options: [
+      { opt: '1 No he hecho ningún progreso', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 He progresado hasta conseguir todas', value: 7},
+    ]},
+    { id: 9, question: 'Mi vida se encuentra', answer_options: [
+      { opt: '1 Vacía, solo llena de desesperación', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Rebosante de cosas buenas y emocionantes', value: 7},
+    ]},
+    { id: 10, question: 'Si muriera hoy, sentiría que mi vida ha sido', answer_options: [
+      { opt: '1 Muy provechosa', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Completamente inútil', value: 7},
+    ]},
+    { id: 11, question: 'Cuando pienso en mi vida', answer_options: [
+      { opt: '1 Frecuentemente aburrido', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Es muy clara la razón por la que estoy acá', value: 7},
+    ]},
+    { id: 12, question: 'En relación con mi vida, el mundo', answer_options: [
+      { opt: '1 Me confunde por completo', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Encaja muy bien con ella', value: 7},
+    ]},
+    { id: 13, question: 'Yo soy una persona', answer_options: [
+      { opt: '1 Una persona irresponsable', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Entusiasmado exuberante', value: 7},
+    ]},
+    { id: 14, question: 'Acerca de la libertad del ser humano para elegir, yo creo que el ser humano', answer_options: [
+      { opt: '1 Es absolutamente libre de hacer todas las elecciones de su vida', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Está completamente restringido por sus limitaciones de herencia y ambiente', value: 7},
+    ]},
+    { id: 15, question: 'Con respecto a la muerte, yo', answer_options: [
+      { opt: '1 Estoy preparado y sin temor', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 No estoy preparado y me da temor', value: 7},
+    ]},
+    { id: 16, question: 'Con respecto al suicidio, yo', answer_options: [
+      { opt: '1 He pensado seriamente en él como una salida', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Nunca lo he considerado', value: 7},
+    ]},
+    { id: 17, question: 'Mi habilidad para encontrar un sentimiento, un propósito o una misión en la vida es', answer_options: [
+      { opt: '1 Muy grande', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Prácticamente nula', value: 7},
+    ]},
+    { id: 18, question: 'Mi vida se encuentra', answer_options: [
+      { opt: '1 En mis manos y lo controlo', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Fuera de mis manos y es controlada por factores externos a mi voluntad', value: 7},
+    ]},
+    { id: 19, question: 'Mis labores diarias son las siguientes', answer_options: [
+      { opt: '1 Una fuente de placer y satisfacción', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Una experiencia dolorosa y aburrida', value: 7},
+    ]},
+    { id: 20, question: 'Me he dado cuenta', answer_options: [
+      { opt: '1 Que carezco de sentido y propósito en la vida', value: 1},
+      { opt: '2', value: 2},
+      { opt: '3', value: 3},
+      { opt: '4 (Neutral)', value: 4},
+      { opt: '5', value: 5 },
+      { opt: '6', value: 6},
+      { opt: '7 Tengo metas claras y un propósito satisfactorio para mi vida', value: 7},
+    ]}
   ]
 }

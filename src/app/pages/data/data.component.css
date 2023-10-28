@@ -5,3 +5,7 @@
 .text-bg-light {
   color: rgba(255, 0, 0, 0.518) !important;
 }
+
+strong {
+  font-weight: 500 !important;
+}

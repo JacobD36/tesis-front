@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class QuestService {
-  //private url = 'http://localhost:3000/api/tesis';
   private url = 'https://tesisapi-production.up.railway.app/api/tesis';
 
   constructor(
@@ -41,5 +40,10 @@ export class QuestService {
   // Guarda la encuesta
   saveQuest(data: UserAnswers) {
     return this.http.post(`${this.url}/save`, data);
+  }
+
+  // Actualiza el email del registro
+  updateEmailAuth(id: string, email: string, auth: boolean) {
+    return this.http.put(`${this.url}/update`, {id, email, auth});
   }
 }

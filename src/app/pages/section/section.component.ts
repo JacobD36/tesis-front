@@ -9,6 +9,7 @@ import { questions_test1, questions_test2 } from 'src/app/models/info-test.model
 import { DataSend } from '../../models/data.model';
 import { QuestService } from 'src/app/shared/quest.service';
 import { Router } from '@angular/router';
+import { ValidatorService } from 'src/app/shared/validator.service';
 
 @Component({
   selector: 'app-section',
@@ -27,18 +28,27 @@ export class SectionComponent implements OnInit{
   test_description!: string;
   intro: boolean = true;
   final: boolean = false;
+  idUser: string = '';
+  emailSaved: boolean = false;
 
   finalReport!: UserAnswers;
   finalData!: any[];
   user!: any;
+  authorization: boolean = false;
 
   private store = inject(Store<AppState>);
   private fb = inject(FormBuilder);
+  private fbAuth = inject(FormBuilder);
   private questService = inject(QuestService);
   private router = inject(Router);
+  private validatorsService = inject(ValidatorService);
 
   dataForm: FormGroup = this.fb.group({
     opt: ['', [Validators.required]]
+  });
+
+  authForm: FormGroup = this.fbAuth.group({
+    email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)]],
   });
 
   ngOnInit(): void {
@@ -93,12 +103,11 @@ export class SectionComponent implements OnInit{
         data: this.finalData
       };
       this.questService.deleteLocal();
-      this.questService.saveQuest(this.finalReport).subscribe();
+      this.questService.saveQuest(this.finalReport).subscribe(({uid}:any) => {
+        this.idUser = uid;
+      });
       this.final = true;
-      setTimeout(() => {
-        this.store.dispatch(setCount({id: 1, count: 0}));
-        this.router.navigateByUrl('/');
-      }, 3000);
+      this.store.dispatch(setCount({id: 1, count: 0}));
       return;
     }
 
@@ -106,5 +115,19 @@ export class SectionComponent implements OnInit{
     this.store.dispatch(addData({newData: [{ id: this.id, num: this.question_number + 1, value: this.dataForm.get('opt')?.value }]}));
     this.store.dispatch(setCount({id: this.id, count: this.question_number}));
     this.dataForm.reset();
+  }
+
+  invalidAuthField(field: string) {
+    return this.authForm.get(field)?.invalid && this.authForm.get(field)?.touched;
+  }
+
+  checkboxChanged() {
+    this.authorization = !this.authorization;
+  }
+
+  updateEmailCheck() {
+    this.questService.updateEmailAuth(this.idUser, this.authForm.get('email')?.value, this.authorization).subscribe((res: any) => {
+      this.emailSaved = true;
+    });
   }
 }

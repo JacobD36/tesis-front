@@ -33,6 +33,7 @@ export class DataComponent implements OnInit {
   cicloList!: Generica[];
   dependenciaList!: Generica[];
   finalReport!: UserAnswers;
+  auth: boolean = false;
 
   private fb = inject(FormBuilder);
   private router = inject(Router);
@@ -168,4 +169,8 @@ export class DataComponent implements OnInit {
   close(alert: Alert) {
 		this.alerts.splice(this.alerts.indexOf(alert), 1);
 	}
+
+  checkboxChanged() {
+    this.auth = !this.auth;
+  }
 }
