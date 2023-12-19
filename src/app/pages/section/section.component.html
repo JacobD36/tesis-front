@@ -45,7 +45,7 @@
           <button
               class="btn btn-primary mb-5 mt-4"
               style="width: 150px;"
-              [disabled]="this.dataForm.invalid || loading"><i *ngIf="loading" class="fas fa-spinner fa-pulse"></i> Siguiente</button>
+              [disabled]="this.dataForm.invalid || loading"><i *ngIf="loading" class="fas fa-spinner fa-pulse"></i> {{(this.question_number === (this.questions.length - 1) && this.id === 2) ? 'Finalizar' : 'Siguiente'}}</button>
         </div>
       </div>
     </form>
@@ -55,12 +55,12 @@
   <div class="p-3">
     <div class="row">
       <div class="col-12 mb-3">
-        <h3>¡Muchas gracias por tu tiempo!</h3>
+        <h3>¡Has finalizado la prueba! ¡Muchas gracias por tu tiempo!</h3>
         <hr>
       </div>
       <div class="col-12 mt-2">
         <p style="text-align: justify;">
-          Agradecemos tu participación y esperamos que esta experiencia sea enriquecedora. Tus respuestas son muy valiosas para nosotros. Si tienes alguna pregunta o necesitas más información, no dudes en ponerte en contacto con nosotros. ¡Te deseamos mucho éxito en la prueba y en tus futuros desafíos! ¡Gracias por confiar en nosotros!
+          Agradecemos tu participación y esperamos que esta experiencia haya sido enriquecedora. Tus respuestas son muy valiosas para nosotros. Si tienes alguna pregunta o necesitas más información, no dudes en ponerte en contacto con nosotros. ¡Gracias por confiar en nosotros!
         </p>
         <!--<code>{{finalReport | json}}</code>-->
       </div>
@@ -82,7 +82,7 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="auth_chk" (change)="checkboxChanged()" style="width: 1rem;height: 1rem;" [disabled]="this.authForm.invalid">
               <label class="form-check-label" for="auth_chk" style="font-size: 1rem;">
-                &nbsp;Autorizo el uso de el correo proporcionado para el envío de los resultados de este test
+                &nbsp;Autorizo que se me envíe, al correo proporcionado, el resultado de este test
               </label>
             </div>
           </div>

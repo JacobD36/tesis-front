@@ -83,6 +83,7 @@ export const distritos_list: Generica[] = [
   { value: 'Surquillo', viewValue: 'Surquillo' },
   { value: 'Villa El Salvador', viewValue: 'Villa El Salvador' },
   { value: 'Villa María del Triunfo', viewValue: 'Villa María del Triunfo' },
+  { value: 'Callao', viewValue: 'Callao' }
 ];
 
 export const puestos_list: Generica[] = [
@@ -193,12 +194,11 @@ export const questions_test1: DataStruct = {
   title: 'Cuestionario caracterológico de Gastón Berger',
   description: `Esta es una prueba que te ayudará a conocerte mucho mejor.
   Para conseguirlo, solo tendrás que contestar las preguntas indicando tu respuesta
-  de la siguiente manera: Al final de cada grupo de respuestas existe un número (1, 5 o 9)
-  en el cual deberás elegir la respuesta que mejor describa una característica tuya y luego marcar
-  la opción correspondiente.<br><br>
+  de la siguiente manera: Cada pregunta contiene la respuesta que mejor describa una característica tuya,
+  la cual deberás marcar.<br><br>
   <code>Ejemplo:<br><br>
-  &nbsp;&nbsp;&nbsp;¿Le gusta salir a pasear con sus amigos?............ 9<br>
-  &nbsp;&nbsp;&nbsp;¿Prefiere salir solo (a)?........................... 1</code>
+  &nbsp;&nbsp;&nbsp;¿Le gusta salir a pasear con sus amigos? o<br>
+  &nbsp;&nbsp;&nbsp;¿Prefiere salir solo (a)?</code>
   `,
   data: [
     {
